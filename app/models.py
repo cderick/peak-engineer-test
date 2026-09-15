@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from datetime import date
 from typing import TypeVar
 
@@ -98,6 +100,15 @@ class BiomarkerView(BaseModel):
     tested_at: str
     status: str
     ranges: Ranges
+    history: list[BiomarkerHistoryPoint] = Field(default_factory=list)
+
+
+class BiomarkerHistoryPoint(BaseModel):
+    tested_at: str
+    value: float
+    unit: str
+    status: str
+    ranges: Ranges
 
 
 class MemberPayload(BaseModel):
@@ -114,6 +125,7 @@ class OkPayload(BaseModel):
 
 class HomePayload(BaseModel):
     results: list[BiomarkerView]
+    wearable_history: WearableHistory
 
 
 class ReadingBody(BaseModel):
@@ -173,3 +185,27 @@ class WearableBody(BaseModel):
 
 class WearablePayload(BaseModel):
     stored: bool
+
+
+class StoredWearableDay(BaseModel):
+    """pk=f"wearables:{id}", sk=calendar_date."""
+
+    user_id: str
+    calendar_date: date
+    upload_id: str
+    provider: str
+    resting_hr_bpm: float | None = None
+    steps: int | float | None = None
+    sleep_efficiency_pct: float | None = None
+
+
+class WearableHistoryDay(BaseModel):
+    date: date
+    resting_hr_bpm: float | None = None
+    steps: int | float | None = None
+    sleep_efficiency_pct: float | None = None
+
+
+class WearableHistory(BaseModel):
+    latest_date: date | None = None
+    days: list[WearableHistoryDay] = Field(default_factory=list)

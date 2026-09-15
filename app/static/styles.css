@@ -212,9 +212,59 @@ button.quiet:hover { color: var(--ink); }
   color: var(--muted);
 }
 
+/* ---- history charts ---- */
+
+.history { margin-top: 0.85rem; }
+
+.history summary {
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.chart-wrap { position: relative; height: 13rem; margin-top: 0.75rem; }
+
+.history-values {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.history-value {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) auto;
+  gap: 0.15rem 0.75rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8125rem;
+}
+
+.history-value small { grid-column: 1 / -1; color: var(--muted); }
+
+.wearables { margin-top: 2.75rem; }
+
+.wearable-charts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.wearable-chart {
+  padding: 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.wearable-chart h3 { margin: 0; font-size: 0.875rem; font-weight: 600; }
+
+.wearable-chart .chart-wrap { height: 14rem; }
+
 @media (max-width: 32rem) {
   .bar { flex-direction: column; padding-top: 2rem; }
   .marker-head { flex-wrap: wrap; }
+  .wearable-charts { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

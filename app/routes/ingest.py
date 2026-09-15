@@ -9,6 +9,7 @@ from ..models import (
     Envelope,
     Member,
     ResultsDocument,
+    StoredWearableDay,
     WearableBody,
     WearablePayload,
 )
@@ -29,11 +30,68 @@ def ingest_member(user_id: str, store: Store = Depends(get_store)) -> Member:
 
 
 @router.post("/wearables", response_model=Envelope[WearablePayload])
-def add_wearable_day(body: WearableBody, member: Member = Depends(ingest_member)):
-    """Receive one provider day. Persistence is part of task 2."""
+def add_wearable_day(
+    body: WearableBody,
+    member: Member = Depends(ingest_member),
+    store: Store = Depends(get_store),
+):
+    """Normalize and replace one provider delivery for a member calendar day."""
     if body.member.reference_id != member.id:
         raise HTTPException(status_code=400, detail="Payload belongs to another member")
-    return Envelope(data=WearablePayload(stored=False))
+
+    day = normalize_wearable_day(body, member.id)
+    store.put(f"wearables:{member.id}", day.calendar_date.isoformat(), day)
+    return Envelope(data=WearablePayload(stored=True))
+
+
+def normalize_wearable_day(body: WearableBody, user_id: str) -> StoredWearableDay:
+    """Extract the three product metrics from a provider delivery.
+
+    Oura, Garmin, and Fitbit expose step samples. Whoop supplies energy instead,
+    which is deliberately not interpreted as steps.
+    """
+    data = body.data.model_dump()
+    data.update(body.data.model_extra or {})
+
+    if body.provider in {"oura", "garmin", "fitbit"}:
+        heart_rate = data.get("heart_rate_data") or {}
+        activity = data.get("activity_data") or {}
+        sleep = data.get("sleep_data") or {}
+        samples = activity.get("steps_samples")
+        steps = None
+        if isinstance(samples, list):
+            steps = sum(
+                sample["value"]
+                for sample in samples
+                if isinstance(sample, dict)
+                and isinstance(sample.get("value"), (int, float))
+                and not isinstance(sample["value"], bool)
+            )
+        return StoredWearableDay(
+            user_id=user_id,
+            calendar_date=body.data.calendar_date,
+            upload_id=body.data.upload_id,
+            provider=body.provider,
+            resting_hr_bpm=heart_rate.get("resting_hr_bpm"),
+            steps=steps,
+            sleep_efficiency_pct=sleep.get("efficiency_pct"),
+        )
+
+    if body.provider == "whoop":
+        heart_rate = data.get("heart_rate") or {}
+        sleep = data.get("sleep") or {}
+        efficiency = sleep.get("efficiency")
+        return StoredWearableDay(
+            user_id=user_id,
+            calendar_date=body.data.calendar_date,
+            upload_id=body.data.upload_id,
+            provider=body.provider,
+            resting_hr_bpm=(heart_rate.get("resting") or {}).get("bpm"),
+            steps=None,
+            sleep_efficiency_pct=(efficiency * 100 if efficiency is not None else None),
+        )
+
+    raise HTTPException(status_code=400, detail="Unsupported wearable provider")
 
 
 def band_for(value: float, definition: BiomarkerDefinition) -> str:

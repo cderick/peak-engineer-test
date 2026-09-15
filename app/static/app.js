@@ -23,6 +23,75 @@ function formatDate(iso) {
   });
 }
 
+function formatCalendarDate(value) {
+  return new Date(`${value}T12:00:00`).toLocaleDateString(undefined, {
+    day: "numeric",
+    month: "short",
+  });
+}
+
+function formatRange(ranges) {
+  return `Optimal ${ranges.optimal.min}–${ranges.optimal.max}; good ${ranges.good.min}–${ranges.good.max}; needs work ${ranges.improve.min}–${ranges.improve.max}`;
+}
+
+function renderHistory(result, root) {
+  if (result.history.length === 0) return;
+
+  const details = document.createElement("details");
+  details.className = "history";
+  details.innerHTML = `
+    <summary>View history (${result.history.length} result${result.history.length === 1 ? "" : "s"})</summary>
+    <div class="chart-wrap"><canvas aria-label="${result.name} history" role="img"></canvas></div>
+    <div class="history-values"></div>
+  `;
+  const values = details.querySelector(".history-values");
+  for (const point of result.history) {
+    const row = document.createElement("div");
+    row.className = "history-value";
+    row.innerHTML = "<span></span><strong></strong><small></small>";
+    row.querySelector("span").textContent = formatDate(point.tested_at);
+    row.querySelector("strong").textContent = `${point.value} ${point.unit}`;
+    row.querySelector("small").textContent = formatRange(point.ranges);
+    values.append(row);
+  }
+
+  let chart;
+  details.addEventListener("toggle", () => {
+    if (!details.open || chart || typeof Chart === "undefined") return;
+    const canvas = details.querySelector("canvas");
+    chart = new Chart(canvas, {
+      type: "line",
+      data: {
+        labels: result.history.map((point) => formatDate(point.tested_at)),
+        datasets: [
+          {
+            label: `${result.name} (${result.unit})`,
+            data: result.history.map((point) => point.value),
+            borderColor: "#386b9b",
+            backgroundColor: "#386b9b",
+            tension: 0.2,
+          },
+        ],
+      },
+      options: {
+        animation: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              afterBody(context) {
+                return formatRange(result.history[context[0].dataIndex].ranges);
+              },
+            },
+          },
+        },
+      },
+    });
+  });
+  root.append(details);
+}
+
 /* The scale spans the full width of every band the marker defines. Bands are
    laid out in value order, not in optimal/good/improve order, so that the tick
    sits in a place that means something. */
@@ -77,6 +146,7 @@ function renderMarker(result) {
     BAND_LABEL[result.status] ?? result.status;
   node.querySelector(".low").textContent = low;
   node.querySelector(".high").textContent = high;
+  renderHistory(result, node);
   return node;
 }
 
@@ -105,6 +175,76 @@ function renderResults(results) {
   }
 }
 
+let wearableCharts = [];
+
+function renderWearableChart(root, days, title, field, unit, color) {
+  const card = document.createElement("article");
+  card.className = "wearable-chart";
+  card.innerHTML = `<h3></h3><div class="chart-wrap"><canvas aria-label="${title} history" role="img"></canvas></div>`;
+  card.querySelector("h3").textContent = title;
+  root.append(card);
+
+  if (typeof Chart === "undefined") return;
+  wearableCharts.push(
+    new Chart(card.querySelector("canvas"), {
+      type: "line",
+      data: {
+        labels: days.map((day) => formatCalendarDate(day.date)),
+        datasets: [
+          {
+            label: `${title} (${unit})`,
+            data: days.map((day) => day[field]),
+            borderColor: color,
+            backgroundColor: color,
+            pointRadius: 2,
+            spanGaps: false,
+            tension: 0.2,
+          },
+        ],
+      },
+      options: {
+        animation: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { title: { display: true, text: unit } } },
+      },
+    })
+  );
+}
+
+function renderWearables(history) {
+  const root = el("wearables");
+  wearableCharts.forEach((chart) => chart.destroy());
+  wearableCharts = [];
+  root.replaceChildren();
+
+  const heading = document.createElement("h2");
+  heading.id = "wearables-title";
+  heading.className = "category";
+  heading.textContent = "Wearables";
+  root.append(heading);
+
+  if (history.days.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "No wearable data yet.";
+    root.append(empty);
+    return;
+  }
+
+  const intro = document.createElement("p");
+  intro.className = "lede";
+  intro.textContent = `Last 30 days ending ${formatCalendarDate(history.latest_date)}. Gaps mean no reading was supplied.`;
+  root.append(intro);
+  const charts = document.createElement("div");
+  charts.className = "wearable-charts";
+  renderWearableChart(charts, history.days, "Resting heart rate", "resting_hr_bpm", "bpm", "#386b9b");
+  renderWearableChart(charts, history.days, "Steps", "steps", "steps", "#67865b");
+  renderWearableChart(charts, history.days, "Sleep efficiency", "sleep_efficiency_pct", "%", "#a8823c");
+  root.append(charts);
+}
+
 async function showDashboard(user) {
   el("signin").hidden = true;
   el("dashboard").hidden = false;
@@ -112,6 +252,7 @@ async function showDashboard(user) {
 
   const { data, meta } = await api("/api/home");
   renderResults(data.results);
+  renderWearables(data.wearable_history);
 
   const latest = meta.tested_at || data.results[0]?.tested_at;
   el("drawn").textContent = latest ? `Drawn ${formatDate(latest)}` : "";

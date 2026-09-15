@@ -65,7 +65,10 @@ def test_home_without_draws(signed_in, home_data):
     response = signed_in.get("/api/home")
     assert response.status_code == 200
     assert response.json() == {
-        "data": {"results": []},
+        "data": {
+            "results": [],
+            "wearable_history": {"latest_date": None, "days": []},
+        },
         "meta": {"count": 0, "categories": [], "tested_at": None},
     }
 
@@ -102,6 +105,45 @@ def test_home_returns_latest_draw_with_definitions_and_stored_ranges(
     assert zinc["direction"] == "in_range"
     assert zinc["status"] == "good"
     assert zinc["ranges"]["optimal"] == {"min": 10, "max": 20}
+    assert zinc["history"] == [
+        {
+            "tested_at": "2026-09-01T09:00:00",
+            "value": 12.0,
+            "unit": "mg/L",
+            "status": "good",
+            "ranges": {
+                "optimal": {"min": 10.0, "max": 20.0},
+                "good": {"min": 5.0, "max": 25.0},
+                "improve": {"min": 0.0, "max": 30.0},
+            },
+        },
+        {
+            "tested_at": "2026-09-10T09:00:00",
+            "value": 22.0,
+            "unit": "mg/L",
+            "status": "good",
+            "ranges": {
+                "optimal": {"min": 10.0, "max": 20.0},
+                "good": {"min": 5.0, "max": 25.0},
+                "improve": {"min": 0.0, "max": 30.0},
+            },
+        },
+    ]
+
+
+def test_home_keeps_a_biomarker_from_an_older_partial_draw(signed_in, store, home_data):
+    home_data("user-1", "2026-09-01T09:00:00", 12)
+    home_data("user-1", "2026-09-10T09:00:00", 22)
+    latest = store.get("results:user-1", "2026-09-10T09:00:00", ResultsDocument)
+    assert latest is not None
+    latest.results = latest.results[:1]
+    store.put("results:user-1", latest.tested_at, latest)
+
+    results = signed_in.get("/api/home").json()["data"]["results"]
+    by_id = {result["biomarker_id"]: result for result in results}
+    assert by_id["a"]["tested_at"] == "2026-09-10T09:00:00"
+    assert by_id["b"]["tested_at"] == "2026-09-01T09:00:00"
+    assert by_id["c"]["tested_at"] == "2026-09-01T09:00:00"
 
 
 def test_home_only_returns_the_signed_in_members_results(client, home_data):
@@ -115,5 +157,6 @@ def test_home_only_returns_the_signed_in_members_results(client, home_data):
         response = client.get("/api/home")
         assert response.status_code == 200
         results = response.json()["data"]["results"]
-        assert len(results) == 3
-        assert all(r["value"] == value for r in results)
+        by_id = {result["biomarker_id"]: result for result in results}
+        assert {"a", "b", "c"} <= by_id.keys()
+        assert all(by_id[marker_id]["value"] == value for marker_id in ("a", "b", "c"))
