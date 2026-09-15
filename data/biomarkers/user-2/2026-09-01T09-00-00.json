@@ -1,0 +1,636 @@
+{
+  "user_id": "user-2",
+  "tested_at": "2026-09-01T09:00:00",
+  "results": [
+    {
+      "biomarker_id": "total_cholesterol",
+      "value": 307.1,
+      "unit": "mg/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 180.0
+        },
+        "good": {
+          "min": 180.0,
+          "max": 200.0
+        },
+        "improve": {
+          "min": 200.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "ldl_cholesterol",
+      "value": 55.0,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 110.0
+        },
+        "good": {
+          "min": 110.0,
+          "max": 140.0
+        },
+        "improve": {
+          "min": 140.0,
+          "max": 300.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hdl_cholesterol",
+      "value": 42.5,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 60.0,
+          "max": 120.0
+        },
+        "good": {
+          "min": 40.0,
+          "max": 60.0
+        },
+        "improve": {
+          "min": 22.0,
+          "max": 40.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "triglycerides",
+      "value": 65.6,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 100.0
+        },
+        "good": {
+          "min": 100.0,
+          "max": 150.0
+        },
+        "improve": {
+          "min": 150.0,
+          "max": 600.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "apob",
+      "value": 52.9,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 70.0
+        },
+        "good": {
+          "min": 70.0,
+          "max": 90.0
+        },
+        "improve": {
+          "min": 90.0,
+          "max": 250.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "lipoprotein_a",
+      "value": 165.7,
+      "unit": "nmol/L",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 75.0
+        },
+        "good": {
+          "min": 75.0,
+          "max": 125.0
+        },
+        "improve": {
+          "min": 125.0,
+          "max": 500.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hs_crp",
+      "value": 0.73,
+      "unit": "mg/L",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 0.8
+        },
+        "good": {
+          "min": 0.8,
+          "max": 2.0
+        },
+        "improve": {
+          "min": 2.0,
+          "max": 20.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "homocysteine",
+      "value": 14.26,
+      "unit": "umol/L",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 9.0
+        },
+        "good": {
+          "min": 9.0,
+          "max": 15.0
+        },
+        "improve": {
+          "min": 15.0,
+          "max": 60.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "fasting_glucose",
+      "value": 89.8,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 70.0,
+          "max": 90.0
+        },
+        "good": {
+          "min": 90.0,
+          "max": 100.0
+        },
+        "improve": {
+          "min": 100.0,
+          "max": 250.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hba1c",
+      "value": 7.52,
+      "unit": "%",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 4.0,
+          "max": 5.1
+        },
+        "good": {
+          "min": 5.1,
+          "max": 5.6
+        },
+        "improve": {
+          "min": 5.6,
+          "max": 12.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "fasting_insulin",
+      "value": 1.4,
+      "unit": "uIU/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 4.0
+        },
+        "good": {
+          "min": 4.0,
+          "max": 8.0
+        },
+        "improve": {
+          "min": 8.0,
+          "max": 40.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "uric_acid",
+      "value": 9.76,
+      "unit": "mg/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 5.5
+        },
+        "good": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "improve": {
+          "min": 7.0,
+          "max": 14.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "alt",
+      "value": 84.3,
+      "unit": "U/L",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 25.0
+        },
+        "good": {
+          "min": 25.0,
+          "max": 40.0
+        },
+        "improve": {
+          "min": 40.0,
+          "max": 200.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "ast",
+      "value": 12.78,
+      "unit": "U/L",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 25.0
+        },
+        "good": {
+          "min": 25.0,
+          "max": 40.0
+        },
+        "improve": {
+          "min": 40.0,
+          "max": 200.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "ggt",
+      "value": 14.26,
+      "unit": "U/L",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 25.0
+        },
+        "good": {
+          "min": 25.0,
+          "max": 50.0
+        },
+        "improve": {
+          "min": 50.0,
+          "max": 300.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "albumin",
+      "value": 5.04,
+      "unit": "g/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 4.3,
+          "max": 5.2
+        },
+        "good": {
+          "min": 3.8,
+          "max": 4.3
+        },
+        "improve": {
+          "min": 2.0,
+          "max": 3.8
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "creatinine",
+      "value": 1.03,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 0.7,
+          "max": 1.0
+        },
+        "good": {
+          "min": 1.0,
+          "max": 1.2
+        },
+        "improve": {
+          "min": 1.2,
+          "max": 3.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "egfr",
+      "value": 44.2,
+      "unit": "mL/min",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 90.0,
+          "max": 140.0
+        },
+        "good": {
+          "min": 60.0,
+          "max": 90.0
+        },
+        "improve": {
+          "min": 35.0,
+          "max": 60.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "bun",
+      "value": 18.56,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 10.0,
+          "max": 18.0
+        },
+        "good": {
+          "min": 18.0,
+          "max": 22.0
+        },
+        "improve": {
+          "min": 22.0,
+          "max": 60.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "tsh",
+      "value": 2.24,
+      "unit": "mIU/L",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 0.8,
+          "max": 2.0
+        },
+        "good": {
+          "min": 2.0,
+          "max": 4.0
+        },
+        "improve": {
+          "min": 4.0,
+          "max": 12.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "free_t3",
+      "value": 3.12,
+      "unit": "pg/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 3.0,
+          "max": 4.0
+        },
+        "good": {
+          "min": 2.3,
+          "max": 3.0
+        },
+        "improve": {
+          "min": 1.0,
+          "max": 2.3
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "free_t4",
+      "value": 0.65,
+      "unit": "ng/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 1.0,
+          "max": 1.5
+        },
+        "good": {
+          "min": 0.8,
+          "max": 1.0
+        },
+        "improve": {
+          "min": 0.4,
+          "max": 0.8
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "cortisol_am",
+      "value": 14.29,
+      "unit": "ug/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 10.0,
+          "max": 16.0
+        },
+        "good": {
+          "min": 16.0,
+          "max": 20.0
+        },
+        "improve": {
+          "min": 20.0,
+          "max": 35.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "testosterone_total",
+      "value": 31.4,
+      "unit": "ng/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 600.0,
+          "max": 900.0
+        },
+        "good": {
+          "min": 400.0,
+          "max": 600.0
+        },
+        "improve": {
+          "min": 0.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "estradiol",
+      "value": 171.8,
+      "unit": "pg/mL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 20.0,
+          "max": 40.0
+        },
+        "good": {
+          "min": 40.0,
+          "max": 60.0
+        },
+        "improve": {
+          "min": 60.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "ferritin",
+      "value": 34.1,
+      "unit": "ng/mL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 100.0,
+          "max": 300.0
+        },
+        "good": {
+          "min": 50.0,
+          "max": 100.0
+        },
+        "improve": {
+          "min": 8.0,
+          "max": 50.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hemoglobin",
+      "value": 13.5,
+      "unit": "g/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 14.5,
+          "max": 16.5
+        },
+        "good": {
+          "min": 13.5,
+          "max": 14.5
+        },
+        "improve": {
+          "min": 10.0,
+          "max": 13.5
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "vitamin_d",
+      "value": 62.7,
+      "unit": "ng/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 60.0,
+          "max": 90.0
+        },
+        "good": {
+          "min": 40.0,
+          "max": 60.0
+        },
+        "improve": {
+          "min": 12.0,
+          "max": 40.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "vitamin_b12",
+      "value": 1077.5,
+      "unit": "pg/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 600.0,
+          "max": 1200.0
+        },
+        "good": {
+          "min": 400.0,
+          "max": 600.0
+        },
+        "improve": {
+          "min": 180.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "magnesium_rbc",
+      "value": 6.26,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 6.0,
+          "max": 7.5
+        },
+        "good": {
+          "min": 5.0,
+          "max": 6.0
+        },
+        "improve": {
+          "min": 3.0,
+          "max": 5.0
+        }
+      },
+      "source": "lab_import"
+    }
+  ]
+}

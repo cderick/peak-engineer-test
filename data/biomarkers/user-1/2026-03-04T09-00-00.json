@@ -1,0 +1,174 @@
+{
+  "user_id": "user-1",
+  "tested_at": "2026-03-04T09:00:00",
+  "results": [
+    {
+      "biomarker_id": "total_cholesterol",
+      "value": 184.4,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 180.0
+        },
+        "good": {
+          "min": 180.0,
+          "max": 200.0
+        },
+        "improve": {
+          "min": 200.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "ldl_cholesterol",
+      "value": 221.1,
+      "unit": "mg/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 110.0
+        },
+        "good": {
+          "min": 110.0,
+          "max": 140.0
+        },
+        "improve": {
+          "min": 140.0,
+          "max": 300.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hdl_cholesterol",
+      "value": 88.6,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 60.0,
+          "max": 120.0
+        },
+        "good": {
+          "min": 40.0,
+          "max": 60.0
+        },
+        "improve": {
+          "min": 22.0,
+          "max": 40.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "triglycerides",
+      "value": 86.4,
+      "unit": "mg/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 100.0
+        },
+        "good": {
+          "min": 100.0,
+          "max": 150.0
+        },
+        "improve": {
+          "min": 150.0,
+          "max": 600.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "apob",
+      "value": 92.1,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 80.0
+        },
+        "good": {
+          "min": 80.0,
+          "max": 100.0
+        },
+        "improve": {
+          "min": 100.0,
+          "max": 250.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "lipoprotein_a",
+      "value": 307.8,
+      "unit": "nmol/L",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 75.0
+        },
+        "good": {
+          "min": 75.0,
+          "max": 125.0
+        },
+        "improve": {
+          "min": 125.0,
+          "max": 500.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hs_crp",
+      "value": 0.44,
+      "unit": "mg/L",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 0.8
+        },
+        "good": {
+          "min": 0.8,
+          "max": 2.0
+        },
+        "improve": {
+          "min": 2.0,
+          "max": 20.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "homocysteine",
+      "value": 15.48,
+      "unit": "umol/L",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.0,
+          "max": 9.0
+        },
+        "good": {
+          "min": 9.0,
+          "max": 15.0
+        },
+        "improve": {
+          "min": 15.0,
+          "max": 60.0
+        }
+      },
+      "source": "lab_import"
+    }
+  ]
+}

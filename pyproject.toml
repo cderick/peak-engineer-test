@@ -1,0 +1,35 @@
+[project]
+name = "peak-takehome"
+version = "0.1.0"
+description = "Member biomarker dashboard"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "uvicorn[standard]>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.12.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
+    "ty>=0.0.78",
+]
+
+[tool.ty.environment]
+python-version = "3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# Depends(...) in an argument default is how FastAPI declares dependencies.
+ignore = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"

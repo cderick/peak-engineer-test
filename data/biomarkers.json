@@ -1,0 +1,662 @@
+[
+  {
+    "id": "albumin",
+    "name": "Albumin",
+    "category": "liver",
+    "unit": "g/dL",
+    "description": "A measure of liver function.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 4.3,
+        "max": 5.2
+      },
+      "good": {
+        "min": 3.8,
+        "max": 4.3
+      },
+      "improve": {
+        "min": 2.0,
+        "max": 3.8
+      }
+    }
+  },
+  {
+    "id": "alt",
+    "name": "ALT",
+    "category": "liver",
+    "unit": "U/L",
+    "description": "A measure of liver function.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 25.0
+      },
+      "good": {
+        "min": 25.0,
+        "max": 40.0
+      },
+      "improve": {
+        "min": 40.0,
+        "max": 200.0
+      }
+    }
+  },
+  {
+    "id": "apob",
+    "name": "Apolipoprotein B",
+    "category": "heart",
+    "unit": "mg/dL",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 70.0
+      },
+      "good": {
+        "min": 70.0,
+        "max": 90.0
+      },
+      "improve": {
+        "min": 90.0,
+        "max": 250.0
+      }
+    }
+  },
+  {
+    "id": "ast",
+    "name": "AST",
+    "category": "liver",
+    "unit": "U/L",
+    "description": "A measure of liver function.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 25.0
+      },
+      "good": {
+        "min": 25.0,
+        "max": 40.0
+      },
+      "improve": {
+        "min": 40.0,
+        "max": 200.0
+      }
+    }
+  },
+  {
+    "id": "bun",
+    "name": "Blood urea nitrogen",
+    "category": "kidney",
+    "unit": "mg/dL",
+    "description": "A measure of kidney function.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 10.0,
+        "max": 18.0
+      },
+      "good": {
+        "min": 18.0,
+        "max": 22.0
+      },
+      "improve": {
+        "min": 22.0,
+        "max": 60.0
+      }
+    }
+  },
+  {
+    "id": "cortisol_am",
+    "name": "Morning cortisol",
+    "category": "hormones",
+    "unit": "ug/dL",
+    "description": "Part of the hormone panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 10.0,
+        "max": 16.0
+      },
+      "good": {
+        "min": 16.0,
+        "max": 20.0
+      },
+      "improve": {
+        "min": 20.0,
+        "max": 35.0
+      }
+    }
+  },
+  {
+    "id": "creatinine",
+    "name": "Creatinine",
+    "category": "kidney",
+    "unit": "mg/dL",
+    "description": "A measure of kidney function.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 0.7,
+        "max": 1.0
+      },
+      "good": {
+        "min": 1.0,
+        "max": 1.2
+      },
+      "improve": {
+        "min": 1.2,
+        "max": 3.0
+      }
+    }
+  },
+  {
+    "id": "egfr",
+    "name": "eGFR",
+    "category": "kidney",
+    "unit": "mL/min",
+    "description": "A measure of kidney function.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 90.0,
+        "max": 140.0
+      },
+      "good": {
+        "min": 60.0,
+        "max": 90.0
+      },
+      "improve": {
+        "min": 35.0,
+        "max": 60.0
+      }
+    }
+  },
+  {
+    "id": "estradiol",
+    "name": "Estradiol",
+    "category": "hormones",
+    "unit": "pg/mL",
+    "description": "Part of the hormone panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 20.0,
+        "max": 40.0
+      },
+      "good": {
+        "min": 40.0,
+        "max": 60.0
+      },
+      "improve": {
+        "min": 60.0,
+        "max": 400.0
+      }
+    }
+  },
+  {
+    "id": "fasting_glucose",
+    "name": "Fasting glucose",
+    "category": "metabolic",
+    "unit": "mg/dL",
+    "description": "Part of the metabolic panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 70.0,
+        "max": 90.0
+      },
+      "good": {
+        "min": 90.0,
+        "max": 100.0
+      },
+      "improve": {
+        "min": 100.0,
+        "max": 250.0
+      }
+    }
+  },
+  {
+    "id": "fasting_insulin",
+    "name": "Fasting insulin",
+    "category": "metabolic",
+    "unit": "uIU/mL",
+    "description": "Part of the metabolic panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 4.0
+      },
+      "good": {
+        "min": 4.0,
+        "max": 8.0
+      },
+      "improve": {
+        "min": 8.0,
+        "max": 40.0
+      }
+    }
+  },
+  {
+    "id": "ferritin",
+    "name": "Ferritin",
+    "category": "blood",
+    "unit": "ng/mL",
+    "description": "Part of the full blood count.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 100.0,
+        "max": 300.0
+      },
+      "good": {
+        "min": 50.0,
+        "max": 100.0
+      },
+      "improve": {
+        "min": 8.0,
+        "max": 50.0
+      }
+    }
+  },
+  {
+    "id": "free_t3",
+    "name": "Free T3",
+    "category": "hormones",
+    "unit": "pg/mL",
+    "description": "Part of the hormone panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 3.0,
+        "max": 4.0
+      },
+      "good": {
+        "min": 2.3,
+        "max": 3.0
+      },
+      "improve": {
+        "min": 1.0,
+        "max": 2.3
+      }
+    }
+  },
+  {
+    "id": "free_t4",
+    "name": "Free T4",
+    "category": "hormones",
+    "unit": "ng/dL",
+    "description": "Part of the hormone panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 1.0,
+        "max": 1.5
+      },
+      "good": {
+        "min": 0.8,
+        "max": 1.0
+      },
+      "improve": {
+        "min": 0.4,
+        "max": 0.8
+      }
+    }
+  },
+  {
+    "id": "ggt",
+    "name": "GGT",
+    "category": "liver",
+    "unit": "U/L",
+    "description": "A measure of liver function.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 25.0
+      },
+      "good": {
+        "min": 25.0,
+        "max": 50.0
+      },
+      "improve": {
+        "min": 50.0,
+        "max": 300.0
+      }
+    }
+  },
+  {
+    "id": "hba1c",
+    "name": "HbA1c",
+    "category": "metabolic",
+    "unit": "%",
+    "description": "Part of the metabolic panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 4.0,
+        "max": 5.1
+      },
+      "good": {
+        "min": 5.1,
+        "max": 5.6
+      },
+      "improve": {
+        "min": 5.6,
+        "max": 12.0
+      }
+    }
+  },
+  {
+    "id": "hdl_cholesterol",
+    "name": "HDL cholesterol",
+    "category": "heart",
+    "unit": "mg/dL",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 60.0,
+        "max": 120.0
+      },
+      "good": {
+        "min": 40.0,
+        "max": 60.0
+      },
+      "improve": {
+        "min": 22.0,
+        "max": 40.0
+      }
+    }
+  },
+  {
+    "id": "hemoglobin",
+    "name": "Haemoglobin",
+    "category": "blood",
+    "unit": "g/dL",
+    "description": "Part of the full blood count.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 14.5,
+        "max": 16.5
+      },
+      "good": {
+        "min": 13.5,
+        "max": 14.5
+      },
+      "improve": {
+        "min": 10.0,
+        "max": 13.5
+      }
+    }
+  },
+  {
+    "id": "homocysteine",
+    "name": "Homocysteine",
+    "category": "inflammation",
+    "unit": "umol/L",
+    "description": "A marker of systemic inflammation.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 9.0
+      },
+      "good": {
+        "min": 9.0,
+        "max": 15.0
+      },
+      "improve": {
+        "min": 15.0,
+        "max": 60.0
+      }
+    }
+  },
+  {
+    "id": "hs_crp",
+    "name": "hs-CRP",
+    "category": "inflammation",
+    "unit": "mg/L",
+    "description": "A marker of systemic inflammation.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 0.8
+      },
+      "good": {
+        "min": 0.8,
+        "max": 2.0
+      },
+      "improve": {
+        "min": 2.0,
+        "max": 20.0
+      }
+    }
+  },
+  {
+    "id": "ldl_cholesterol",
+    "name": "LDL cholesterol",
+    "category": "heart",
+    "unit": "mg/dL",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 110.0
+      },
+      "good": {
+        "min": 110.0,
+        "max": 140.0
+      },
+      "improve": {
+        "min": 140.0,
+        "max": 300.0
+      }
+    }
+  },
+  {
+    "id": "lipoprotein_a",
+    "name": "Lipoprotein(a)",
+    "category": "heart",
+    "unit": "nmol/L",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 75.0
+      },
+      "good": {
+        "min": 75.0,
+        "max": 125.0
+      },
+      "improve": {
+        "min": 125.0,
+        "max": 500.0
+      }
+    }
+  },
+  {
+    "id": "magnesium_rbc",
+    "name": "Magnesium (RBC)",
+    "category": "vitamins",
+    "unit": "mg/dL",
+    "description": "A nutrient status marker.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 6.0,
+        "max": 7.5
+      },
+      "good": {
+        "min": 5.0,
+        "max": 6.0
+      },
+      "improve": {
+        "min": 3.0,
+        "max": 5.0
+      }
+    }
+  },
+  {
+    "id": "testosterone_total",
+    "name": "Total testosterone",
+    "category": "hormones",
+    "unit": "ng/dL",
+    "description": "Part of the hormone panel.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 600.0,
+        "max": 900.0
+      },
+      "good": {
+        "min": 400.0,
+        "max": 600.0
+      },
+      "improve": {
+        "min": 0.0,
+        "max": 400.0
+      }
+    }
+  },
+  {
+    "id": "total_cholesterol",
+    "name": "Total cholesterol",
+    "category": "heart",
+    "unit": "mg/dL",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 180.0
+      },
+      "good": {
+        "min": 180.0,
+        "max": 200.0
+      },
+      "improve": {
+        "min": 200.0,
+        "max": 400.0
+      }
+    }
+  },
+  {
+    "id": "triglycerides",
+    "name": "Triglycerides",
+    "category": "heart",
+    "unit": "mg/dL",
+    "description": "Part of the cardiovascular panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 100.0
+      },
+      "good": {
+        "min": 100.0,
+        "max": 150.0
+      },
+      "improve": {
+        "min": 150.0,
+        "max": 600.0
+      }
+    }
+  },
+  {
+    "id": "tsh",
+    "name": "TSH",
+    "category": "hormones",
+    "unit": "mIU/L",
+    "description": "Part of the hormone panel.",
+    "direction": "in_range",
+    "ranges": {
+      "optimal": {
+        "min": 0.8,
+        "max": 2.0
+      },
+      "good": {
+        "min": 2.0,
+        "max": 4.0
+      },
+      "improve": {
+        "min": 4.0,
+        "max": 12.0
+      }
+    }
+  },
+  {
+    "id": "uric_acid",
+    "name": "Uric acid",
+    "category": "metabolic",
+    "unit": "mg/dL",
+    "description": "Part of the metabolic panel.",
+    "direction": "lower_better",
+    "ranges": {
+      "optimal": {
+        "min": 0.0,
+        "max": 5.5
+      },
+      "good": {
+        "min": 5.5,
+        "max": 7.0
+      },
+      "improve": {
+        "min": 7.0,
+        "max": 14.0
+      }
+    }
+  },
+  {
+    "id": "vitamin_b12",
+    "name": "Vitamin B12",
+    "category": "vitamins",
+    "unit": "pg/mL",
+    "description": "A nutrient status marker.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 600.0,
+        "max": 1200.0
+      },
+      "good": {
+        "min": 400.0,
+        "max": 600.0
+      },
+      "improve": {
+        "min": 180.0,
+        "max": 400.0
+      }
+    }
+  },
+  {
+    "id": "vitamin_d",
+    "name": "Vitamin D (25-OH)",
+    "category": "vitamins",
+    "unit": "ng/mL",
+    "description": "A nutrient status marker.",
+    "direction": "higher_better",
+    "ranges": {
+      "optimal": {
+        "min": 60.0,
+        "max": 90.0
+      },
+      "good": {
+        "min": 40.0,
+        "max": 60.0
+      },
+      "improve": {
+        "min": 12.0,
+        "max": 40.0
+      }
+    }
+  }
+]

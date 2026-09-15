@@ -1,0 +1,132 @@
+{
+  "user_id": "user-2",
+  "tested_at": "2026-02-01T09:00:00",
+  "results": [
+    {
+      "biomarker_id": "tsh",
+      "value": 5.17,
+      "unit": "mIU/L",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 0.8,
+          "max": 2.0
+        },
+        "good": {
+          "min": 2.0,
+          "max": 4.0
+        },
+        "improve": {
+          "min": 4.0,
+          "max": 12.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "free_t3",
+      "value": 3.46,
+      "unit": "pg/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 3.0,
+          "max": 4.0
+        },
+        "good": {
+          "min": 2.3,
+          "max": 3.0
+        },
+        "improve": {
+          "min": 1.0,
+          "max": 2.3
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "free_t4",
+      "value": 0.68,
+      "unit": "ng/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 1.0,
+          "max": 1.5
+        },
+        "good": {
+          "min": 0.8,
+          "max": 1.0
+        },
+        "improve": {
+          "min": 0.4,
+          "max": 0.8
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "cortisol_am",
+      "value": 13.27,
+      "unit": "ug/dL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 10.0,
+          "max": 16.0
+        },
+        "good": {
+          "min": 16.0,
+          "max": 20.0
+        },
+        "improve": {
+          "min": 20.0,
+          "max": 35.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "testosterone_total",
+      "value": 51.1,
+      "unit": "ng/dL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 600.0,
+          "max": 900.0
+        },
+        "good": {
+          "min": 400.0,
+          "max": 600.0
+        },
+        "improve": {
+          "min": 0.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "estradiol",
+      "value": 206.3,
+      "unit": "pg/mL",
+      "status": "improve",
+      "ranges": {
+        "optimal": {
+          "min": 20.0,
+          "max": 40.0
+        },
+        "good": {
+          "min": 40.0,
+          "max": 60.0
+        },
+        "improve": {
+          "min": 60.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    }
+  ]
+}

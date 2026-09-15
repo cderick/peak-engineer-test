@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your results</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<main id="signin" class="signin" hidden>
+  <h1>Your results</h1>
+  <p class="lede">Sign in to see your latest bloodwork.</p>
+  <label for="email">Email</label>
+  <input id="email" type="email" autocomplete="email" placeholder="james.chen@example.com">
+  <button id="signin-button" type="button">Sign in</button>
+  <p id="signin-error" class="error" role="alert" hidden></p>
+  <p class="hint">
+    Any of the seeded members will do, with no password:<br>
+    james.chen@example.com &middot; priya.raman@example.com &middot;
+    tom.okafor@example.com &middot; sofia.marek@example.com
+  </p>
+</main>
+
+<div id="dashboard" hidden>
+  <header class="bar">
+    <div>
+      <h1>Your results</h1>
+      <p id="drawn" class="lede"></p>
+    </div>
+    <div class="bar-end">
+      <span id="whoami"></span>
+      <button id="signout-button" type="button" class="quiet">Sign out</button>
+    </div>
+  </header>
+  <main>
+    <div id="results"></div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<script src="/static/perf.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

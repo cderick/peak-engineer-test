@@ -1,0 +1,111 @@
+{
+  "user_id": "user-3",
+  "tested_at": "2026-02-25T09:00:00",
+  "results": [
+    {
+      "biomarker_id": "ferritin",
+      "value": 220.7,
+      "unit": "ng/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 100.0,
+          "max": 300.0
+        },
+        "good": {
+          "min": 50.0,
+          "max": 100.0
+        },
+        "improve": {
+          "min": 8.0,
+          "max": 50.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "hemoglobin",
+      "value": 14.43,
+      "unit": "g/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 14.5,
+          "max": 16.5
+        },
+        "good": {
+          "min": 13.5,
+          "max": 14.5
+        },
+        "improve": {
+          "min": 10.0,
+          "max": 13.5
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "vitamin_d",
+      "value": 64.5,
+      "unit": "ng/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 50.0,
+          "max": 80.0
+        },
+        "good": {
+          "min": 30.0,
+          "max": 50.0
+        },
+        "improve": {
+          "min": 12.0,
+          "max": 30.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "vitamin_b12",
+      "value": 1123.2,
+      "unit": "pg/mL",
+      "status": "optimal",
+      "ranges": {
+        "optimal": {
+          "min": 600.0,
+          "max": 1200.0
+        },
+        "good": {
+          "min": 400.0,
+          "max": 600.0
+        },
+        "improve": {
+          "min": 180.0,
+          "max": 400.0
+        }
+      },
+      "source": "lab_import"
+    },
+    {
+      "biomarker_id": "magnesium_rbc",
+      "value": 5.57,
+      "unit": "mg/dL",
+      "status": "good",
+      "ranges": {
+        "optimal": {
+          "min": 6.0,
+          "max": 7.5
+        },
+        "good": {
+          "min": 5.0,
+          "max": 6.0
+        },
+        "improve": {
+          "min": 3.0,
+          "max": 5.0
+        }
+      },
+      "source": "lab_import"
+    }
+  ]
+}
