@@ -34,6 +34,14 @@ function formatRange(ranges) {
   return `Optimal ${ranges.optimal.min}–${ranges.optimal.max}; good ${ranges.good.min}–${ranges.good.max}; needs work ${ranges.improve.min}–${ranges.improve.max}`;
 }
 
+function formatCategory(category) {
+  return category
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+let historyCharts = [];
+
 function renderHistory(result, root) {
   if (result.history.length === 0) return;
 
@@ -88,6 +96,7 @@ function renderHistory(result, root) {
         },
       },
     });
+    historyCharts.push(chart);
   });
   root.append(details);
 }
@@ -168,7 +177,7 @@ function renderResults(results) {
       category = result.category;
       const heading = document.createElement("h2");
       heading.className = "category";
-      heading.textContent = category;
+      heading.textContent = formatCategory(category);
       root.append(heading);
     }
     root.append(renderMarker(result));
@@ -176,6 +185,21 @@ function renderResults(results) {
 }
 
 let wearableCharts = [];
+
+function destroyCharts() {
+  historyCharts.forEach((chart) => chart.destroy());
+  historyCharts = [];
+  wearableCharts.forEach((chart) => chart.destroy());
+  wearableCharts = [];
+}
+
+function clearDashboard() {
+  destroyCharts();
+  el("results").replaceChildren();
+  el("wearables").replaceChildren();
+  el("whoami").textContent = "";
+  el("drawn").textContent = "";
+}
 
 function renderWearableChart(root, days, title, field, unit, color) {
   const card = document.createElement("article");
@@ -215,8 +239,6 @@ function renderWearableChart(root, days, title, field, unit, color) {
 
 function renderWearables(history) {
   const root = el("wearables");
-  wearableCharts.forEach((chart) => chart.destroy());
-  wearableCharts = [];
   root.replaceChildren();
 
   const heading = document.createElement("h2");
@@ -246,6 +268,7 @@ function renderWearables(history) {
 }
 
 async function showDashboard(user) {
+  clearDashboard();
   el("signin").hidden = true;
   el("dashboard").hidden = false;
   el("whoami").textContent = user.name;
@@ -290,6 +313,7 @@ el("email").addEventListener("keydown", (event) => {
 el("signout-button").addEventListener("click", async () => {
   await api("/api/auth/logout", { method: "POST" });
   el("email").value = "";
+  clearDashboard();
   showSignIn();
 });
 
